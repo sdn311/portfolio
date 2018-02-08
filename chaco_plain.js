@@ -1,7 +1,7 @@
 function initialize() {
     var Chaco = new google.maps.LatLng(-23.693853,-59.489595)
     var mapOptions = {
-        zoom: 6,
+        zoom: 4,
         center: Chaco,
         mapTypeId: google.maps.MapTypeId.SATELLITE
     };
