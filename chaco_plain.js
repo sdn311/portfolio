@@ -3,7 +3,7 @@ function initialize() {
     var mapOptions = {
         zoom: 8,
         center: Chaco,
-        mapTypeId: google.maps.MaptypeId.HYBRID
+        mapTypeId: google.maps.MapTypeId.SATELLITE
     };
     var map = new google.maps.Map(
         document.getElementById("map_canvas"),
