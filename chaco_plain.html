@@ -1,35 +1,12 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/mapPage.css">
-    <title>The Chaco Plain of South America:</title>
-      <subtitle>a textbook retroarc foreland basin</subtitle>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   </head>
+  
   <body>
+    <h1>Chaco Plain of South America</h1>
     <div id="map_canvas"></div>
-    <script src="js/mapPage_02.js"></script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -23.693853, lng: -59.489595},
-          zoom: 8
-        });
-      }
-    </script>
+    <script src="js/chaco_plain.js"></script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbb_AfTnGXq8FDmDIEhy3gmzXbRlCoxgI&callback=initMap"
     </script>
