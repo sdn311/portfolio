@@ -6,7 +6,7 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.SATELLITE
         styles: [
            {
-             "elementType": "geometry",
+              "elementType": "geometry",
               "stylers": [
                 { visibility: "on" },
                 { "color": "#212121" }
