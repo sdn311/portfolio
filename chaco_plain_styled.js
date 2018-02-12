@@ -135,8 +135,10 @@ function initialize() {
                 "stylers": [
                   { "color": "#3d3d3d" }
                 ]
-            }
-                ]
+              }
+            ]
+            
+            };
     var map = new google.maps.Map(
         document.getElementById("map_canvas"),
         mapOptions);
