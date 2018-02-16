@@ -5,15 +5,102 @@
     </head>
   
     <body>
-        <h1>Chaco Plain Retroarc Foreland Basin of South America</h1>
-        <h3>A textbook example of a Distributive Fluvial System</h3>
-        <p>Dr. Gary Weissmann, a professor of hydrology at the University of New Mexico, has studied fluvial systems for a majority of the past two decades.
+      <h1>Chaco Plain Retroarc Foreland Basin of South America</h1>
+      <h3>A textbook example of a Distributive Fluvial System</h3>
+      <p>Dr. Gary Weissmann, a professor of hydrology at the University of New Mexico, has studied fluvial systems for a majority of the past two decades.
            As an undergraduate student under his advisement, I have been conducting research examining the Chaco Plain in South America to understand the geomorphic, fluvial, and sedimentary characteristics of this region.  
-        <div id="map_canvas"></div>
-        <script src="chaco_plain_styled.js"></script>
-    
-        <script async defer
+      <div id="map_canvas"></div>
+      <script>
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+           center: {lat: -23.693853, lng: -59.489595}
+           zoom: 8,
+           styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+      }
+      </script>
+      <script src="chaco_plain_styled.js"></script>
+      <script async defer
                 src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyAorFR2dFK5gH9v3HDZsCvpPtHAQ312wKs">
-        </script>
+      </script>
     </body>
 </html>
