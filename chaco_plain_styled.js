@@ -8,9 +8,11 @@ function initialize() {
           {
             "elementType": "geometry",
             "stylers": [
-              { "color": "#212121"
+              { "color": "#212121"}]
           }
+        ]
     var map = new google.maps.Map(
         document.getElementById("map_canvas"),
         myOptions);
-}
+          }
+        }
