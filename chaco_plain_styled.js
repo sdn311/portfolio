@@ -3,8 +3,8 @@ function initialize() {
     var mapOptions = {
         zoom: 5,
         center: Chaco,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-        styles:[
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles:[
   {
     "elementType": "geometry",
     "stylers": [
@@ -330,10 +330,7 @@ function initialize() {
       }
     ]
   }
-]
-
-};
-          
+]      
     var map = new google.maps.Map(
         document.getElementById("map_canvas"),
         myOptions);
