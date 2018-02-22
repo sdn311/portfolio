@@ -3,8 +3,8 @@ function initialize() {
     var mapOptions = {
         zoom: 5,
         center: Chaco,
-        mapTypeId: google.maps.MapTypeId.SATELLITE
-        styles: [
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+        styles:[
   {
     "elementType": "geometry",
     "stylers": [
