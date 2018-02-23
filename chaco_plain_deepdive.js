@@ -335,4 +335,14 @@ function initialize() {
     var map = new google.maps.Map(
         document.getElementById("map_canvas"),
         mapOptions);
+
+    var triangleCoords = [
+    {lat: -21.241547, lng: -63.607770},
+    {lat: -19.653194, lng: -58.677126},
+    {lat: -25.442586, lng: -58.592972},
+    {lat: -21.241547, lng: -63.607770}
+  ];
+
 }
+
+    
