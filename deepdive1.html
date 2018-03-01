@@ -43,6 +43,9 @@
           center:{lat:-23.693853,lng:-59.489595},
           mapTypeId: 'satellite'
         }
+               
+        var map = new
+        google.maps.Map(document.getElementById('map'), options);
         
         var triangleCoords = [
           {lat: -21.241547, lng: -63.607770},
@@ -61,10 +64,7 @@
           fillColor: '#FF0000',
           fillOpacity: 0.35
         });
-        megaFan.setMap('map');
-        
-        var map = new
-        google.maps.Map(document.getElementById('map'), options);
+        megaFan.setMap('map')
         
         //add marker
       
