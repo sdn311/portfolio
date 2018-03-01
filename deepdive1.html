@@ -42,18 +42,20 @@
           zoom:6,
           center:{lat:-23.693853,lng:-59.489595},
           mapTypeId: 'satellite'
-        }
+        };
                
         var map = new
         google.maps.Map(document.getElementById('map'), options);
         
-        var triangleCoords = [
-          {lat: -21.241547, lng: -63.607770},
-          {lat: -19.653194, lng: -58.677126},
-          {lat: -22.092490, lng: -58.004426},
-          {lat: -25.442586, lng: -58.592972},
-          {lat: -21.241547, lng: -63.607770}
-        ];
+        var destinations = [];
+        destinations.push (new google.maps.LatLng(-21.241547, -63.607770));
+        destinations.push (new google.maps.LatLng(-19.653194, -58.677126));
+        destinations.push (new google.maps.LatLng(-22.092490, -58.004426));
+        destinations.push (new google.maps.LatLng(-25.442586, -58.592972));
+        destinations.push (new google.maps.LatLng(-21.241547, -63.607770));
+        
+        var polygonOptions = {path: destinations};
+        var polygon = new google.maps.Polygon(polygonOptions);
 
         // Construct the polygon.
         var megaFan = new google.maps.Polygon({
