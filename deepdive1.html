@@ -54,8 +54,10 @@
         destinations.push (new google.maps.LatLng(-25.442586, -58.592972));
         destinations.push (new google.maps.LatLng(-21.241547, -63.607770));
         
-        var polygonOptions = {path: destinations};
+        var polygonOptions = {path: destinations,
+            strokeColor:#ff0000, strokeWeight=3, fillColor:#ff0000, fillOpacity: 0.35};
         var polygon = new google.maps.Polygon(polygonOptions);
+        polygon.setMap(map);
 
         // Construct the polygon.
         var megaFan = new google.maps.Polygon({
