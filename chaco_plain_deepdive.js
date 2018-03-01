@@ -332,6 +332,47 @@ function initialize() {
   }
 ]
     };    
-
+    
+      addMarker({
+         coords:lat:-21.265227,lng:-63.522422},
+         content:'<h1>Fan Apex</h1>'
+      });
+      addMarker({
+         coords:lat:-21.453727,lng:-63.129760},
+         content:'<h1>Proximal Fan</h1>'
+      });
+      addMarker({
+         coords:lat:-22.318424,lng:-60.901038},
+         content:'<h1>Middle Fan</h1>'
+      });
+      addMarker({
+         coords:lat:-22.963336,lng:-58.022236},
+         content:'<h1>Distal Fan</h1>'
+      });
+          
+function addMarker(props){
+      var marker = new google.maps.Marker({
+        position:props.coords,
+        content:props.content,
+        map:map_canvas,
+      });
+            
+      var triangleCoords = new google.maps.Polygon({
+        {lat: -21.241547, lng: -63.607770},
+        {lat: -19.653194, lng: -58.677126},
+        {lat: -22.092490, lng: -58.004426},
+        {lat: -25.442586, lng: -58.592972},
+        {lat: -21.241547, lng: -63.607770}
+      });
+            
+      var megaFan = new google.maps.Polygon({
+        paths: triangleCoords,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35
+      });
+        
 
     
