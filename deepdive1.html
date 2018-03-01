@@ -70,15 +70,17 @@
           position:props.coords,
           content:props.content,
           map:map,
-      });
+        });
+      }
             
+      function addPolygon{  
         var triangleCoords = new google.maps.Polygon({
           {lat: -21.241547, lng: -63.607770},
           {lat: -19.653194, lng: -58.677126},
           {lat: -22.092490, lng: -58.004426},
           {lat: -25.442586, lng: -58.592972},
           {lat: -21.241547, lng: -63.607770}
-       });
+        });
             
         var megaFan = new google.maps.Polygon({
           paths: triangleCoords,
@@ -86,8 +88,10 @@
           strokeOpacity: 0.8,
           strokeWeight: 2,
           fillColor: '#FF0000',
-          fillOpacity: 0.35
-      });
+          fillOpacity: 0.35,
+          map:map
+        });
+      }
 
     </script>
     <script async defer
