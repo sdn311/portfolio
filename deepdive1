@@ -1,7 +1,13 @@
 <html>
   <head>
     <title>My Google Map</title>
-  <head>
+    <style>
+      #map{
+        height:400px
+        width:100%
+      }
+    </style>  
+  </head>
   <body>
     <h1>My Google Map</h1>
     <div id="map"></div>
@@ -9,8 +15,11 @@
       function initMap(){
         var options = {
           zoom:8,
-          center:
+          center:{lat:-23.693853,lng:-59.489595}
         }
+        
+        var map = new
+        google.maps.Map(document.getElementById('map'), options);
       }
     </script>
     <script async defer
