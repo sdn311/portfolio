@@ -1,11 +1,12 @@
-http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?
+http://gstore.unm.edu/apps/rgis/datasets/715663ba-c1c3-414c-84a7-c671526f8316/services/ogc/wms?
 VERSION=1.1.1&
 SERVICE=WMS&
 REQUEST=GetMap&
-BBOX=-107.2,34.7,-106,35.25&
-LAYERS=g_2007fe_35_county&
+BBOX=-106.75,35,-106.7,35.05&
+LAYERS=tl_2010_35_bg10&
 WIDTH=500&
 HEIGHT=500&
-SRS=EPSG:4326&TRANSPARENT=TRUE&
+SRS=EPSG:4326&
+TRANSPARENT=TRUE&
 FORMAT=image/png&
 STYLES=default
