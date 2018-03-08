@@ -1,0 +1,56 @@
+<html>
+  <head>
+     <link rel="stylesheet" type="text/css" href="chaco_plain.css">
+     <title>Chaco Plain Basin</title>
+  </head>
+  
+  <body>
+      #map{
+        height:300px;
+        width:400px;
+      }
+    </style>  
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initialize(){
+        var options = {
+          zoom:18,
+          center:{lat:51.178884,lng:-1.826214},
+          mapTypeId: 'satellite'
+        };
+               
+        var map = new
+        google.maps.Map(document.getElementById('map'), options);
+        
+        //add marker
+      
+        addMarker({
+          coords:{lat:51.178884,lng:-1.826214},
+          content:'<h1>Retirement Spot</h1>'
+          
+        function addMarker(props){
+          var marker = new google.maps.Marker({
+            position:props.coords,
+            map:map,
+          });
+          
+          if(props.content){
+            var infoWindow = new google.maps.InfoWindow({
+              content:props.content
+            });
+            
+            marker.addListener('click', function(){
+              infoWindow.open(map, marker);
+            });
+          }
+        }                       
+      }      
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?callback=initialize&key=AIzaSyAorFR2dFK5gH9v3HDZsCvpPtHAQ312wKs">
+    </script>
+  <body>
+  
+</html>
