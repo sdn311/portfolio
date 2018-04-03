@@ -6,7 +6,7 @@
       rel="stylesheet" 
       href="openlayers.css" 
       type="text/css">
-    <script>
+  <script>
       var openCycleMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
@@ -17,7 +17,6 @@
               '?apikey=b09b6ad078bd48148c1ed08beebda393'
         })
       });
-
       var openSeaMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
@@ -28,7 +27,6 @@
           url: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png'
         })
       });
-      
       var map = new ol.Map({
         layers: [
           openCycleMapLayer,
@@ -45,6 +43,15 @@
           center: ol.proj.fromLonLat([-28.332091,38.469306]),
           zoom: 10
         })
+      });
+      
+      var feature = new ol.Feature({
+        geometry: new ol.geom.Polygon(
+          [-28.433,38.533],
+          [-28.333,38.533],
+          [-28.383,38.433]),
+        labelPoint: new ol.geom.Point(labelCoords),
+        name: 'My Polygon'
       });
     </script>
   </head>
