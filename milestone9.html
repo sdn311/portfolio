@@ -13,12 +13,6 @@
   <body>
     <h1>Ilha do Pico, Azores</h1>
     <div id="map" class="map"></div>
-    <style> 
-      #map{
-        height:300px;
-        width:400px;
-      }
-    </style>
     <script>
       var openCycleMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
@@ -30,7 +24,20 @@
               '?apikey=b09b6ad078bd48148c1ed08beebda393'
         })
       });
-
+      (function () {
+        var coords = "38.481647 -28.479340 38.463817 -28.494241 38.465800 -28.456388" +
+                     "38.533305 -28.439364 38.517323 -28.452983 38.530642 -28.422340" +
+                     "38.504890 -28.374671 38.467577 -28.384886 38.454247 -28.376941 38.494231 -28.363322 38.505778 -28.373536";
+                
+        var style = new ol.style.Style({
+            image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+                anchor: [0.5, 46],
+                anchorXUnits: 'fraction',
+                anchorYUnits: 'pixels',
+                opacity: 0.75,
+                src: 'http://ol3js.org/en/master/examples/data/icon.png'
+            }))
+        });
       var openSeaMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
@@ -60,15 +67,6 @@
           zoom: 10
         })
       });
-      
-      var feature = new ol.Feature({
-        geometry: new ol.geom.Polygon(
-          [-28.433,38.533],
-          [-28.333,38.533],
-          [-28.383,38.433]),
-        labelPoint: new ol.geom.Point(labelCoords),
-        name: 'My Polygon'
-});
     </script>
   </body>
 </html>
