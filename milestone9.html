@@ -1,12 +1,19 @@
-<!DOCTYPE html>
+]<!DOCTYPE html>
 <html>
   <head>
     <title>Ilha do Pico, Azores</title>
     <link 
       rel="stylesheet" 
-      href="openlayers.css" 
+      href="chaco_plain.css" 
       type="text/css">
-  <script>
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+  </head>
+  <body>
+    <h1>Ilha do Pico, Azores</h1>
+    <div id="map" class="map"></div>
+    <script>
       var openCycleMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
@@ -17,6 +24,7 @@
               '?apikey=b09b6ad078bd48148c1ed08beebda393'
         })
       });
+
       var openSeaMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
@@ -27,6 +35,8 @@
           url: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png'
         })
       });
+
+
       var map = new ol.Map({
         layers: [
           openCycleMapLayer,
@@ -54,9 +64,5 @@
         name: 'My Polygon'
       });
     </script>
-  </head>
-  <body>
-    <h1>Ilha do Pico, Azores</h1>
-    <div id="map" class="map"></div>
   </body>
 </html>
