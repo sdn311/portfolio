@@ -36,7 +36,7 @@
         })
       });
       
-      var vesctorSource = new ol.source.Vector({
+      var vectorSource = new ol.source.Vector({
         source: vectorSource
       });
 
@@ -60,7 +60,7 @@
       });
       
       var object1 = new ol.geom.Point( [38.468242,-28.399165] )
-      
+      vectorSource.addFeature( object1 );
     </script>
   </body>
 </html>
