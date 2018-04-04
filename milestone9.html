@@ -36,15 +36,14 @@
         })
       });
       
-      var vectorSource = new ol.source.Vector({
-        source: vectorSource
-      });
+      var point = new OpenLayers.Feature.Vector(
+        new OpenLayers.Geometry.Point([38.468242,-28.399165])
+      );
 
       var map = new ol.Map({
         layers: [
           openCycleMapLayer,
-          openSeaMapLayer,
-          vectorSource
+          openSeaMapLayer
         ],
         target: 'map',
         controls: ol.control.defaults({
@@ -58,9 +57,8 @@
           zoom: 10
         })
       });
-      
-      var object1 = new ol.geom.Point( [38.468242,-28.399165] )
-      vectorSource.addFeature( object1 );
+      map.addLayer(openCycleMapLayer);
+      openCycleMapLayer.addFeatures([point]);
     </script>
   </body>
 </html> 
