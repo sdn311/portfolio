@@ -3,8 +3,8 @@ body {
     height:100%
 }
 #map,.map {
-    width:600px;
-    height:400px
+    width:1200px;
+    height:800px
 }
 #map_selector li {
     cursor:pointer;
