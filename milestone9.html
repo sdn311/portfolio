@@ -4,7 +4,7 @@
     <title>Ilha do Pico, Azores</title>
     <link 
       rel="stylesheet" 
-      href="openlayers.css" 
+      href="chaco_plain.css" 
       type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
@@ -35,10 +35,7 @@
           url: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png'
         })
       });
-      
-      var point = new OpenLayers.Feature.Vector(
-        new OpenLayers.Geometry.Point([38.468242,-28.399165])
-      );
+
 
       var map = new ol.Map({
         layers: [
@@ -57,8 +54,16 @@
           zoom: 10
         })
       });
-      map.addLayer(openCycleMapLayer);
-      openCycleMapLayer.addFeatures([point]);
+      
+      var feature = new ol.Feature({
+        geometry: new ol.geom.Polygon(
+          [-28.433,38.533],
+          [-28.333,38.533],
+          [-28.383,38.433]),
+        labelPoint: new ol.geom.Point(labelCoords),
+        name: 'My Polygon'
+      });
+      feature.addFeature(My Polygon)
     </script>
   </body>
 </html>
