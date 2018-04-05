@@ -28,7 +28,7 @@
         }))
       });
       
-            iconFeature.setStyle(iconStyle);
+      iconFeature.setStyle(iconStyle);
 
       var vectorSource = new ol.source.Vector({
         features: [iconFeature]
@@ -36,13 +36,6 @@
 
       var vectorLayer = new ol.layer.Vector({
         source: vectorSource
-      });
-
-      var rasterLayer = new ol.layer.Tile({
-        source: new ol.source.TileJSON({
-          url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure',
-          crossOrigin: ''
-        })
       });
       
       var openCycleMapLayer = new ol.layer.Tile({
@@ -71,7 +64,8 @@
       var map = new ol.Map({
         layers: [
           openCycleMapLayer,
-          openSeaMapLayer
+          openSeaMapLayer,
+          vectorLayer
         ],
         target: 'map',
         controls: ol.control.defaults({
