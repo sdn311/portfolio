@@ -14,6 +14,37 @@
     <h1>Ilha do Pico, Azores</h1>
     <div id="map" class="map"></div>
     <script>
+      var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point([38.467886, -28.397219]),
+        name: 'Montanha do Pico'
+      });
+      
+      var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'
+        }))
+      });
+      
+            iconFeature.setStyle(iconStyle);
+
+      var vectorSource = new ol.source.Vector({
+        features: [iconFeature]
+      });
+
+      var vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+      });
+
+      var rasterLayer = new ol.layer.Tile({
+        source: new ol.source.TileJSON({
+          url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure',
+          crossOrigin: ''
+        })
+      });
+      
       var openCycleMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
