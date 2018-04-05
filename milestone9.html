@@ -14,30 +14,92 @@
     <h1>Ilha do Pico, Azores</h1>
     <div id="map" class="map"></div>
     <script>
-      var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point([38.467886, -28.397219]),
-        name: 'Montanha do Pico'
-      });
-      
-      var iconStyle = new ol.style.Style({
-        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-          anchor: [0.5, 46],
-          anchorXUnits: 'fraction',
-          anchorYUnits: 'pixels',
-          src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'
-        }))
-      });
-      
-      iconFeature.setStyle(iconStyle);
-
-      var vectorSource = new ol.source.Vector({
-        features: [iconFeature]
+      var openCycleMapLayer = new ol.layer.Tile({
+        source: new ol.source.OSM({
+          attributions: [
+            'All maps © <a href="https://www.opencyclemap.org/">OpenCycleMap</a>',
+            ol.source.OSM.ATTRIBUTION
+          ],
+          url: 'https://{a-c}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png' +
+              '?apikey=b09b6ad078bd48148c1ed08beebda393'
+        })
       });
 
-      var vectorLayer = new ol.layer.Vector({
-        source: vectorSource
+      var openSeaMapLayer = new ol.layer.Tile({
+        source: new ol.source.OSM({
+          attributions: [
+            'All maps © <a href="http://www.openseamap.org/">OpenSeaMap</a>',
+            ol.source.OSM.ATTRIBUTION
+          ],
+          opaque: false,
+          url: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png'
+        })
       });
-      
+      var projection = ol.proj.get('EPSG:3857');
+
+      var raster = new ol.layer.Tile({
+        source: new ol.source.BingMaps({
+          imagerySet: 'Aerial',
+          key: 'Your Bing Maps Key from http://www.bingmapsportal.com/ here'
+        })
+      });
+
+      var vector = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          url: 'https://openlayers.org/en/v4.6.5/examples/data/kml/2012-02-10.kml',
+          format: new ol.format.KML()
+        })
+      });
+
+      var map = new ol.Map({
+        layers: [
+          openCycleMapLayer,
+          openSeaMapLayer,
+          raster,
+          vector
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+          attributionOptions: {
+            collapsible: false
+          }
+        }),
+        view: new ol.View({
+          maxZoom: 18,
+          center: ol.proj.fromLonLat([-28.332091,38.469306]),
+          zoom: 10
+        })
+      });
+
+      var displayFeatureInfo = function(pixel) {
+        var features = [];
+        map.forEachFeatureAtPixel(pixel, function(feature) {
+          features.push(feature);
+        });
+        if (features.length > 0) {
+          var info = [];
+          var i, ii;
+          for (i = 0, ii = features.length; i < ii; ++i) {
+            info.push(features[i].get('name'));
+          }
+          document.getElementById('info').innerHTML = info.join(', ') || '(unknown)';
+          map.getTarget().style.cursor = 'pointer';
+        } else {
+          document.getElementById('info').innerHTML = '&nbsp;';
+          map.getTarget().style.cursor = '';
+        }
+      };
+
+      map.on('pointermove', function(evt) {
+        if (evt.dragging) {
+          return;
+        }
+        var pixel = map.getEventPixel(evt.originalEvent);
+        displayFeatureInfo(pixel);
+      });
+
+      map.on('click', function(evt) {
+        displayFeatureInfo(evt.pixel);
       var openCycleMapLayer = new ol.layer.Tile({
         source: new ol.source.OSM({
           attributions: [
@@ -65,7 +127,6 @@
         layers: [
           openCycleMapLayer,
           openSeaMapLayer,
-          vectorLayer
         ],
         target: 'map',
         controls: ol.control.defaults({
