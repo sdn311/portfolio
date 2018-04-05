@@ -52,10 +52,10 @@
       
       var map = new ol.Map({
         layers: [
-          openCycleMapLayer,
-          openSeaMapLayer,
+          vector,
           raster,
-          vector
+          openCycleMapLayer,
+          openSeaMapLayer
         ],
         target: 'map',
         controls: ol.control.defaults({
