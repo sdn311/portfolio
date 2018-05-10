@@ -14,7 +14,18 @@
     <h2>Final Map 1</h2>
     <div id="map" class="map"></div>
     <script type="text/javascript">
-      var map = new ol.Map({
+      var basemap_vector- = new ol.layer.Vector({
+        source: new ol.source.VectorWMS({
+        url: 'https://internetmapping.net:8080/geoserver/wms?',
+          params: {
+            LAYERS: 'sdn311:sn_35106-A5_CONT',
+            FORMAT: 'vector/shp',
+            TRANSPARENT: true
+          },
+        })
+      })  
+      
+      var map = new ol.Map({  
         target: 'map',
         layers: [
           new ol.layer.Tile({
