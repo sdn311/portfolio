@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="chaco_plain.css" type="text/css">
+    <style>
+      .map {
+        height: 800px;
+        width: 1200px;
+      }
+    </style>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
+    <title>Final Map 1</title>
+  </head>
+  <body>
+    <h2>Final Map 1</h2>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+   
+      var object3 = new ol.layer.Tiled({
+        source: new ol.source.TileWMS({           
+          attributions: new ol.Attribution({
+              html: 'Contours.'
+          }), 
+          params: {'LAYERS':'sn_35106-A5_CONT'},
+          url: 'https://internetmapping.net:8080/geoserver/wms?',
+          serverType: 'geoserver'
+        })
+      })      
+      
+      var object5 = new ol.layer.Tiled({
+        source: new ol.source.TileWMS({           
+          attributions: new ol.Attribution({
+              html: 'Roads.'
+          }), 
+          params: {'LAYERS':'sn_tgr2006se_bern_lka'},
+          url: 'https://internetmapping.net:8080/geoserver/wms?',
+          serverType: 'geoserver'
+        })
+      })      
+    
+      var tiledMap = new ol.Map({
+        target: 'map',
+        layers: [object3,object5],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-106.6875233706502, 35.06256538875188]),
+          zoom: 12,
+          projection: 'EPSG:4326'
+        })
+      });
+    </script>
+  </body>
+</html>
