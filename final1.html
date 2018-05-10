@@ -14,27 +14,78 @@
     <h2>Final Map 1</h2>
     <div id="map" class="map"></div>
     <script type="text/javascript">
-      var basemap_vector- = new ol.layer.Vector({
-        source: new ol.source.VectorWMS({
+      var object1 = new ol.layer.Tile({
+        source: new ol.source.TileWMS({
         url: 'https://internetmapping.net:8080/geoserver/wms?',
-          params: {
-            LAYERS: 'sdn311:sn_35106-A5_CONT',
-            FORMAT: 'vector/shp',
+        params: {
+            LAYERS: 'sdn311:sn_35106-A5',
+            FORMAT: 'image/png',
             TRANSPARENT: true
           },
+          attributions: [
+            new ol.Attribution({
+              html: 'Data provided by the GEOG 485 GeoServer.'
+            })
+          ]  
         })
-      })  
+      })
       
-      var map = new ol.Map({  
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
+      var object2 = new ol.layer.Tiled({
+        source: new ol.source.TileWMS({
+          url: 'https://internetmapping.net:8080/geoserver/wms?',
+          params: {
+            LAYERS: 'sdn311:sn_35106-A6',
+            FORMAT: 'image/png',
+            TRANSPARENT: true
+          },
+          attributions: [
+            new ol.Attribution({
+              html: 'Data provided by the GEOG 485 GeoServer.'
+            })
+          ]  
+        })
+      })
+      
+      var object3 = new ol.layer.Tiled({
+        source: new ol.source.TileWMS({           
+          attributions: new ol.Attribution({
+              html: 'Contours.'
+          }), 
+          params: {'LAYERS':'sn_35106-A5_CONT'},
+          url: 'https://internetmapping.net:8080/geoserver/wms?',
+          serverType: 'geoserver'
+        })
+      })      
+      
+      var object4 = new ol.layer.Tiled({
+        source: new ol.source.TileWMS({           
+          attributions: new ol.Attribution({
+              html: 'Contours.'
+          }), 
+          params: {'LAYERS':'sn_35106-A6_CONT'},
+          url: 'https://internetmapping.net:8080/geoserver/wms?',
+          serverType: 'geoserver'
+        })
+      })      
+      
+      var object5 = new ol.layer.Tiled({
+        source: new ol.source.TileWMS({           
+          attributions: new ol.Attribution({
+              html: 'Roads.'
+          }), 
+          params: {'LAYERS':'sn_tgr2006se_bern_lka'},
+          url: 'https://internetmapping.net:8080/geoserver/wms?',
+          serverType: 'geoserver'
+        })
+      })      
+    
+      var tiledMap = new ol.Map({
+        target: 'map_tiled',
+        layers: [object1,object2,object3,object4,object5],
         view: new ol.View({
           center: ol.proj.fromLonLat([-106.6875233706502, 35.06256538875188]),
-          zoom: 12
+          zoom: 12,
+          projection: 'EPSG:4326'
         })
       });
     </script>
